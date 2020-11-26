@@ -4,11 +4,11 @@ import './Header.scss'
 
 const Header = (props) => {
   return (
-    <header>
+    <header className="navbar">
       <div className="logo">
-        <Link to={'/'}>Home!</Link>
+        <Link to={'/'}>TYD!</Link>
       </div>
-      <div className="links">
+      <nav className="links">
         <ul>
           { props.currentUser ? 
             <>
@@ -22,7 +22,7 @@ const Header = (props) => {
             </>
           }
         </ul>
-      </div>
+      </nav>
     </header>
   );
 }

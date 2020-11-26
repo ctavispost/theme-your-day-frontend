@@ -5,6 +5,15 @@ html {
   /* responsive font size */
   font-size: min(max(16px, 3vw), 24px);
   scroll-behavior: smooth;
+
+  --primaryColor: hsla(0, 0%, 0%, .87);
+  --primaryBg: #3f51b5;
+  --primaryBgLt: #757de8;
+  --primaryBgDk: #002984;
+  --secondaryBg: #00bcd4;
+  --secondaryBgLt: #62efff;
+  --secondaryBgDk: #008ba3;
+  --neutralBg: #f3f3f4;
 }
 
 *, *:before, *:after {
@@ -25,6 +34,7 @@ html, body {
 }
 
 body {
+  color: var(--primaryColor);
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -48,4 +58,16 @@ a:hover {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 1rem auto; /* space between form elements and fallback center */
+  justify-content: center;
+  max-width: 25ch;
+}
+
+label {
+  justify-self: flex-start;
 }
