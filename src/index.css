@@ -55,6 +55,19 @@ a:hover {
   text-decoration: underline;
 }
 
+button {
+  color: #fff;
+  background-color: var(--primaryBg);
+}
+
+button:hover {
+  background-color: var(--primaryBgLt);
+}
+
+button:active {
+  background-color: var(--primaryBgDk);
+}
+
 img {
   max-width: 100%;
   height: auto;
