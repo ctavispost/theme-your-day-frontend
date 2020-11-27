@@ -5,7 +5,7 @@ const Theme = () => {
     <main>
       <h1>Activities</h1>
     </main>
-  );
-}
+  )
+};
 
 export default Theme;
