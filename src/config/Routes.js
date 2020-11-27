@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 import Register from '../pages/Register'
 import Login from '../pages/Login'
 import Profile from '../pages/Profile'
+import Theme from '../pages/Theme'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const currentUser = localStorage.getItem('id')
@@ -26,6 +27,7 @@ const Routes = (props) => (
                 storeUser={ props.storeUser }
               />
     } } />
+    <Route path='/theme' render={ Theme } />
     <PrivateRoute path='/profile' component={ Profile } currentUser={ props.currentUser } />
   </Switch>
 )
