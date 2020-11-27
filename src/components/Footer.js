@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+import './Footer.css'
 
 const Footer = () => {
-  return <p>Footer Here!</p>
+  return <footer>Footer Here!</footer>
 }
 
 export default Footer;
