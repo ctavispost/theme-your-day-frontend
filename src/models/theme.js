@@ -7,8 +7,9 @@ class ThemeModel {
                 .catch(error => alert(error.message)); 
     }
 
-    static show = (gameId) => {
-        return fetch(`${url}/theme/${themeId}`)
+    
+    static show = (themeId) => {
+        return fetch(`${url}/theme/${ themeId }`)
             .then(res => res.json())
                 .catch(error => alert(error.message));
     }
