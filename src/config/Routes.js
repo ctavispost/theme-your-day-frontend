@@ -22,12 +22,11 @@ const Routes = (props) => (
     <Route path='/login' render={ (routeComponentProps) => {
       return  <Login 
                 {...routeComponentProps}
-                // more props to come here
                 currentUser={ props.currentUser }
                 storeUser={ props.storeUser }
               />
     } } />
-    <Route path='/theme' render={ Theme } />
+    <Route path='/theme' component={ Theme } currentUser={ props.currentUser } />
     <PrivateRoute path='/profile' component={ Profile } currentUser={ props.currentUser } />
   </Switch>
 )
