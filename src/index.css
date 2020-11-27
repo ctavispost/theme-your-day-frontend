@@ -112,13 +112,7 @@ label {
   gap: 1rem;
 }
 
-.temp {
+.gridAutoCol {
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   margin: 0;
-}
-
-footer {
-  background-color: var(--primaryBgDk);
-  color: #fff;
-  padding: 1rem;
 }
