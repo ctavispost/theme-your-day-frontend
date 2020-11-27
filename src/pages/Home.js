@@ -14,9 +14,11 @@ class Home extends Component {
   };
 
   fetchData = () => {
-    ThemeModel.all().then(data => {
-      this.setState({ themes: data.theme })
-    });
+    ThemeModel.all()
+      .then(data => {
+        this.setState({ themes: data.theme })
+    })
+          .catch(error => alert(error.message));
   }
 
   render() {
@@ -29,10 +31,12 @@ class Home extends Component {
     });
 
     return (
-      <div>
-        <h1 className="hero">Theme Your Day</h1>
-        { this.state.themes ? themeList : 'Loading...' }
-      </div>
+      <article>
+        <h1 className="hero logo">Theme Your Day</h1>
+        <section className="gridy gap-one-rem gridAutoCol">
+          { this.state.themes ? themeList : 'Loading...' }
+        </section>
+      </article>
     );
   }
 }
