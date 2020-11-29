@@ -3,7 +3,7 @@ const url = `http://localhost:4000/api/v1`;
 class ActModel {
     static allActs = () => {
         return fetch(`${url}/activity/`)
-            .then(res => res.json()
+            .then(res => res.json())
                 .catch(error => alert(error.message))
     }
 
@@ -15,7 +15,7 @@ class ActModel {
             },
             body: JSON.stringify(activityInfo)
         })
-            .then(res => res.json()
+            .then(res => res.json())
                 .catch(error => alert(error.message))
     }
 }
