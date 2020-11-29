@@ -1,7 +1,7 @@
 const url = `http://localhost:4000/api/v1`;
 
 class ActModel {
-    static allActs = (actId) => {
+    static allActs = () => {
         return fetch(`${url}/activity/`)
             .then(res => res.json()
                 .catch(error => alert(error.message))
