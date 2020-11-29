@@ -9,7 +9,7 @@ class UserActModel {
 
     static deleteUserAct = (userActId) => {
         return fetch(`${url}/userAct/${userActId}`, {
-            method: DELETE
+            method: 'DELETE'
         })
     }
 }
