@@ -6,6 +6,12 @@ class UserActModel {
             .then(res => res.json())
                 .catch(error => alert(error.message));
     }
+
+    static deleteUserAct = (userActId) => {
+        return fetch(`${url}/userAct/${userActId}`, {
+            method: DELETE
+        })
+    }
 }
 
 export default UserActModel;
