@@ -6,7 +6,6 @@ class ThemeModel {
             .then(res => res.json())
                 .catch(error => alert(error.message)); 
     }
-
     
     static show = (themeId) => {
         return fetch(`${url}/theme/${ themeId }`)
@@ -25,6 +24,6 @@ class ThemeModel {
             .then(res => res.json())
                 .catch(error => alert(error.message));
     }
-}
+};
 
 export default ThemeModel;

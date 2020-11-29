@@ -4,7 +4,7 @@ const ThemeCard = (props) => {
     return(
         <article className="GameCard">
             <h2>{ props.name }</h2>
-            <img src={ props.image } alt="{ props.title } art"/>
+            <img src={ props.image } alt="{ props.name } art"/>
         </article>
     )
 };

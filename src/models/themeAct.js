@@ -1,11 +1,11 @@
-const url = `http://localhost:4000/api/v1`
+const url = `http://localhost:4000/api/v1`;
 
-class themeAct {
+class ThemeActModel {
     static allThemeActs = (themeActId) => {
         return fetch(`${url}/themeAct/`)
             .then(res => res.json()
                 .catch(error => alert(error.message))
-    };
-}
+    }
+};
 
-export default themeAct;
+export default ThemeActModel;
