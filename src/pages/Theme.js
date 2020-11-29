@@ -15,14 +15,15 @@ class ShowTheme extends Component {
     this.getActivity()
   }
 
-  getThemeAct = () => {
-    return(
-      ThemeActModel.allThemeActs()
+  getThemeAct = async () => {
+    await ThemeActModel.allThemeActs()
         .then(allTa => {
-          allTa.filter(themeAct => themeAct.themeId === this.state.currentTheme)
+          return(
+            allTa.filter(themeAct => themeAct.themeId === this.state.currentTheme)
+          )
+            .catch(error => alert(error.message))
       })
-    )
-  }
+  };
 
   getActNum = (themeAct) => {
     let nums = [];
@@ -30,14 +31,14 @@ class ShowTheme extends Component {
     return nums;
   }
 
-  getAct = (actIds) => {
-    return(
-      ActModel.allActs()
+  getAct = async (actIds) => {
+      await ActModel.allActs()
         .then(allActivities => {
-          allActivities.filter(element => actIds.includes(element.id))
-          })
+          return (
+            allActivities.filter(element => actIds.includes(element.id))
+          )})
             .catch(error => alert(error.message))
-    );
+ 
   };
   
   getActivity = () => {
