@@ -5,17 +5,8 @@ import ThemeCard from '../components/ThemeCard';
 import ActCard from '../components/ActCard';
 import ThemeActModel from '../models/themeAct';
 
-class ShowTheme extends Component {
-  state = {
-    activities: [],
-    currentTheme: this.props.match.params.id
-  }
-
-  componentDidMount() {
-    this.getActivity()
-  }
-
-  getThemeAct = async () => {
+/* get theme acts and filter by user id */
+const getThemeActs = async () => {
     await ThemeActModel.allThemeActs()
         .then(allTa => {
           return(
@@ -25,33 +16,31 @@ class ShowTheme extends Component {
       })
   };
 
-  getActNum = (themeAct) => {
-    let nums = [];
-    themeAct.forEach(act => nums.push[act.actId]);
-    return nums;
+const getActs = async () => {
+    await ActModel.allActs()
+      .then(allActivities => {
+        return (allActivities)
+      })
+        .catch(error => alert(error.message))
+};
+
+class ShowTheme extends Component {
+  state = {
+    activities: [],
+    currentTheme: this.props.match.params.id
   }
 
-  getAct = async (actIds) => {
-      await ActModel.allActs()
-        .then(allActivities => {
-          return (
-            allActivities.filter(element => actIds.includes(element.id))
-          )})
-            .catch(error => alert(error.message))
- 
-  };
-  
-  getActivity = () => {
-    getThemeAct()
-      .then(themeActs => {
-        getAct(themeActs)
-          .then(foundActs => {
-            this.setState({ activities: foundActs.activities })
-          })
-            .catch(error => alert(error.message))
-      })
-      .catch(error => alert(error.message))
-  };
+  componentDidMount() {
+    this.getActivities()
+  }
+
+  getActivities = () => {
+    let themeActs = getThemeActs();
+    let acts = getActs();
+    let actIds = new Set(themeActs.map(v => v.actId));
+    let foundActs = acts.filter(v => actIds.has(v));
+    this.setState({activities: foundActs});
+  }
 
   render() {
     let actList = this.state.activities.map((activity, index) => {
