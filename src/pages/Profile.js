@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ActModel from '../models/activity';
-import UserActModel from '../components/userAct';
+import UserActModel from '../models/userAct';
 import ActCard from '../components/ActCard';
 
 /* get theme acts and filter by user id */
