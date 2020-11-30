@@ -20,7 +20,7 @@ class NewAct extends Component {
         let newUserAct = {
                 userId: this.props.currentUser, 
                 actId: newActId};
-        UserActModel.createUserAct()
+        UserActModel.createUserAct(newUserAct)
             .then(data => {
                 ActModel.createAct(this.state)
                     .then(data => {
