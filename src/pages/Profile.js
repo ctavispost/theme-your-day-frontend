@@ -8,11 +8,15 @@ import NewAct from '../components/NewAct';
 const getUserActs = async () => {
   await UserActModel.allUserActs()
       .then(allUa => {
-        return(
-          allUa.filter(userAct => userAct.userId === this.props.currentUser)
-        )
-          .catch(error => alert(error.message))
+        if(allUa.length > 0) {
+          return(
+            allUa.filter(userAct => userAct.userId === this.props.currentUser)  
+          );
+        } else {
+          return([]);
+        }
     })
+      .catch(error => alert(error.message))
 };
 
 const getActs = async () => {
@@ -35,9 +39,11 @@ class Profile extends Component {
   getActivities = () => {
     let userActs = getUserActs();
     let acts = getActs();
-    let actIds = new Set(userActs.map(v => v.actId));
-    let foundActs = acts.filter(v => actIds.has(v));
-    this.setState({activities: foundActs});
+    if (userActs.length > 0) {
+      let actIds = new Set(userActs.map(v => v.actId));
+      let foundActs = acts.filter(v => actIds.has(v));
+      this.setState({activities: foundActs});  
+    }
   }
 
   render() {

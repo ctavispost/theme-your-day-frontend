@@ -16,7 +16,13 @@ class NewAct extends Component {
 
         let newActId = null;
         ActModel.allActs()
-            .then(data => newActId = data.length + 1);
+            .then(data => {
+                if (data.length > 0) {
+                    newActId = data.length + 1;
+                } else {
+                    newActId = 1;
+                }
+            });
         let newUserAct = {
                 userId: this.props.currentUser, 
                 actId: newActId};

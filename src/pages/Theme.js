@@ -10,7 +10,7 @@ const getThemeActs = async () => {
     await ThemeActModel.allThemeActs()
         .then(allTa => {
           return(
-            allTa.filter(themeAct => themeAct.themeId === this.state.currentTheme)
+            allTa.filter(themeAct => themeAct.themeId === this.props.match.params.id)
           )
             .catch(error => alert(error.message))
       })
