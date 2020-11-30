@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ActModel from '../models/activity';
 import UserActModel from '../models/userAct';
 import ActCard from '../components/ActCard';
+import NewAct from '../components/NewAct';
 
 /* get theme acts and filter by user id */
 const getUserActs = async () => {
@@ -50,6 +51,7 @@ class Profile extends Component {
         <article>
             { this.state.activities ? actList : 'Loading...' }
         </article>
+        <NewAct />
       </main> 
     )
   }
