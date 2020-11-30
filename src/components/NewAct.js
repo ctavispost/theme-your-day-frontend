@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
 import ActModel from '../models/activity';
+import UserActModel from '../models/userAct';
 
 class NewAct extends Component {
-    initialState = {
+    state = {
         title: '',
         description: '',
         image: '',  
     };
 
-    state = initialState;
 
+    /* create a new act from state, and create a new userAct w same id */
     handleSubmit = (event) => {
         event.preventDefault();
 
-        ActModel.createAct(this.state)
+        let newActId = null;
+        ActModel.allActs()
+            .then(data => newActId = data.length + 1);
+        let newUserAct = {
+                userId: this.props.currentUser, 
+                actId: newActId};
+        UserActModel.createUserAct()
             .then(data => {
-                this.props.history.push('/profile')
+                ActModel.createAct(this.state)
+                    .then(data => {
+                        this.props.history.push('/profile')
+                    })
+                        .catch(error => alert(error.message));
             })
                 .catch(error => alert(error.message));
     }
