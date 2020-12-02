@@ -12,16 +12,18 @@ class Home extends Component {
   componentDidMount() {
     this.fetchData()
   };
-
+  
   fetchData = () => {
     ThemeModel.all()
       .then(data => {
-        this.setState({ themes: data.theme })
+        console.log(data);
+        this.setState({ themes: data.themes })
     })
           .catch(error => alert(error.message));
   }
 
   render() {
+    console.log(this.state);
     let themeList = this.state.themes.map((theme, index) => {
       return (
         <Link to={`/theme/${ theme.id }`} key={index}>
