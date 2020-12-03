@@ -43,10 +43,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 a {
   text-decoration: none;
 }
@@ -58,7 +54,8 @@ a:hover {
 button {
   color: #fff;
   background-color: var(--primaryBg);
-  padding: 1rem;
+  padding: .5rem 1rem;
+  margin: 1rem;
 }
 
 button:hover {
@@ -128,4 +125,14 @@ label {
 
 .marg-top-one {
   margin-top: 1rem;
+}
+
+.activityPic {
+  max-height: 50vh;
+  max-width: 44ch;
+}
+
+.actCard {
+  margin: 2rem;
+  
 }
