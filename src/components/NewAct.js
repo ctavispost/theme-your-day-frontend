@@ -1,40 +1,30 @@
 import React, { Component } from 'react';
 import ActModel from '../models/activity';
-import UserActModel from '../models/userAct';
 
 class NewAct extends Component {
     state = {
         title: '',
         description: '',
-        image: '',  
+        image: ''  
     };
 
 
     /* create a new act from state, and create a new userAct w same id */
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
+        let newActivity = {
+            title: this.state.title,
+            description: this.state.description,
+            image: this.state.image,
+        };
 
-        let newActId = null;
-        ActModel.allActs()
-            .then(data => {
-                if (data.length > 0) {
-                    newActId = data.length + 1;
-                } else {
-                    newActId = 1;
-                }
-            });
-        let newUserAct = {
-                userId: this.props.currentUser, 
-                actId: newActId};
-        UserActModel.createUserAct(newUserAct)
-            .then(data => {
-                ActModel.createAct(this.state)
-                    .then(data => {
-                        this.props.history.push('/profile')
-                    })
-                        .catch(error => alert(error.message));
-            })
-                .catch(error => alert(error.message));
+        this.setState({
+            title: '',
+            description: '',
+            image: ''
+        });
+
+        this.props.onSubmit(await ActModel.createAct(newActivity));
     }
 
     handleChange = (event) => {

@@ -26,7 +26,12 @@ class Home extends Component {
     console.log(this.state);
     let themeList = this.state.themes.map((theme, index) => {
       return (
-        <Link to={`/theme/${ theme.id }`} key={index}>
+        <Link to={{
+          pathname: `/theme/${ theme.id}`,
+          state: {
+            themeId: theme.id
+          }
+          }} key={index}>
           <ThemeCard  {...theme} />
         </Link>
       )

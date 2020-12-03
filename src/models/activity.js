@@ -3,8 +3,7 @@ const url = `http://localhost:4000/api/v1`;
 class ActModel {
     static allActs = () => {
         return fetch(`${url}/activity/`)
-            .then(res => res.json())
-                .catch(error => alert(error.message))
+            .then(res => res.json());
     }
 
     static createAct = (activityInfo) => {
@@ -13,10 +12,10 @@ class ActModel {
             headers: {
                 "Content-Type": "application/json"
             },
+            credentials: "include",
             body: JSON.stringify(activityInfo)
         })
-            .then(res => res.json())
-                .catch(error => alert(error.message))
+            .then(res => res.json());
     }
 }
 

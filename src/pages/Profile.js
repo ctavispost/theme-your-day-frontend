@@ -5,27 +5,6 @@ import ActCard from '../components/ActCard';
 import NewAct from '../components/NewAct';
 
 /* get theme acts and filter by user id */
-const getUserActs = async () => {
-  await UserActModel.allUserActs()
-      .then(allUa => {
-        if(allUa.length > 0) {
-          return(
-            allUa.filter(userAct => userAct.userId === this.props.currentUser)  
-          );
-        } else {
-          return([]);
-        }
-    })
-      .catch(error => alert(error.message))
-};
-
-const getActs = async () => {
-  await ActModel.allActs()
-    .then(allActivities => {
-      return (allActivities)
-    })
-      .catch(error => alert(error.message))
-};
 
 class Profile extends Component {
   state = {
@@ -36,19 +15,46 @@ class Profile extends Component {
     this.getActivities()
   }
 
-  getActivities = () => {
-    let userActs = getUserActs();
-    let acts = getActs();
-    if (userActs.length > 0) {
-      let actIds = new Set(userActs.map(v => v.actId));
-      let foundActs = acts.filter(v => actIds.has(v));
-      this.setState({activities: foundActs});  
+  getUserActs = async () => {
+    const allUa = (await UserActModel.allUserActs()).userActs;
+    
+    if(allUa.length > 0) {
+      
+      const allUacts = allUa.filter(userAct => userAct.userId === Number(this.props.currentUser));
+      
+      return allUacts;
     }
+    return [];
+  };
+
+  getActs = async () => {
+    return (await ActModel.allActs()).activity;
+  };
+  
+
+  getActivities = async () => {
+    let userActs = await this.getUserActs();
+    let acts = await this.getActs();
+    
+    if (userActs.length > 0) {
+      let actIds = new Set(userActs.map(v => v.activityId));
+      let foundActs = acts.filter(v => actIds.has(v.id));
+      this.setState({activities: foundActs});
+  
+    }
+  }
+
+  addNewActivity = (activity) => {
+    this.setState({activities: [...this.state.activities, activity]});
+  }
+
+  deleteActivity = (index) => {
+    this.setState({activities: this.state.activities.filter((v, i)=> i !== index)})
   }
 
   render() {
     let actList = this.state.activities.map((activity, index) => {
-      return (<ActCard {...this.state.activities} />)
+      return (<ActCard {...activity} key={activity.id} onDelete={() => this.deleteActivity(index)}/>)
     })
 
     return (
@@ -57,7 +63,7 @@ class Profile extends Component {
         <article>
             { this.state.activities ? actList : 'Loading...' }
         </article>
-        <NewAct />
+        <NewAct onSubmit={activity => this.addNewActivity(activity)}/>
       </main> 
     )
   }

@@ -4,7 +4,6 @@ class UserActModel {
     static allUserActs = (userActId) => {
         return fetch(`${url}/userAct/`)
             .then(res => res.json())
-                .catch(error => alert(error.message));
     }
 
     static createUserAct = (userActInfo) => {
@@ -16,7 +15,6 @@ class UserActModel {
             body: JSON.stringify(userActInfo)
         })
             .then(res => res.json())
-                .catch(error => alert(error.message))
     }
 
     static deleteUserAct = (userActId) => {
