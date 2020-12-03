@@ -51,18 +51,18 @@ a:hover {
   text-decoration: underline;
 }
 
-button {
+button, .btn {
   color: #fff;
   background-color: var(--primaryBg);
   padding: .5rem 1rem;
   margin: 1rem;
 }
 
-button:hover {
+button:hover, .btn:hover {
   background-color: var(--primaryBgLt);
 }
 
-button:active {
+button:active, .btn:active {
   background-color: var(--primaryBgDk);
 }
 
@@ -132,7 +132,6 @@ label {
   max-width: 44ch;
 }
 
-.actCard {
+.margTwoRem {
   margin: 2rem;
-  
 }

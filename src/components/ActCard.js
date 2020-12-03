@@ -4,7 +4,7 @@ import React from 'react';
 
 const ActCard = (props) => {
     return(
-        <article className="actCard">
+        <article className="actCard margTwoRem">
             <h2>{ props.title }</h2>
             <img src={ props.image } alt="{ props.title } art" className="activityPic"/>
             <p>{ props.description }</p>

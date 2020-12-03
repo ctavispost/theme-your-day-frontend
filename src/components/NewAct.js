@@ -35,7 +35,7 @@ class NewAct extends Component {
 
     render() {
         return (
-        <section>
+        <section className="margTwoRem">
             <h2>Create a New Activity</h2>
             <form onSubmit={this.handleSubmit}>
             <div className="form-input">
@@ -63,7 +63,7 @@ class NewAct extends Component {
                 value={this.state.image} />
             </div>
 
-            <input type="submit" value="Create"/>
+            <input type="submit" value="Create" className="btn"/>
             </form>
         </section>
         );
