@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ActModel from '../models/activity';
 import ThemeCard from '../components/ThemeCard';
 import ActCard from '../components/ActCard';
+import UserActModel from '../models/userAct';
 
 class ShowTheme extends Component {
   state = {
@@ -21,9 +22,15 @@ class ShowTheme extends Component {
     this.setState({activities: foundActs});
   }
   
+  addFavoriteActivity = async (activity) => {
+    console.log(activity);
+    const newFavorite = UserActModel.createUserAct(activity);
+
+  };
+
   render() {
     let actList = this.state.activities.map((activity, index) => {
-      return (<ActCard {...activity} />)
+      return (<ActCard {...activity} onFavorite={() => this.addFavoriteActivity(activity)}/>)
     })
 
     return (

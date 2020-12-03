@@ -9,6 +9,7 @@ const ActCard = (props) => {
             <img src={ props.image } alt="{ props.title } art"/>
             <p>{ props.description }</p>
             <button onClick={props.onDelete}>delete</button>
+            <button onClick={props.onFavorite}>favorite</button>
         </article>
     )
 };

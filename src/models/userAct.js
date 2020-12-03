@@ -12,6 +12,7 @@ class UserActModel {
             headers: {
                 "Content-Type": "application/json"
             },
+            credentials: "include",
             body: JSON.stringify(userActInfo)
         })
             .then(res => res.json())
