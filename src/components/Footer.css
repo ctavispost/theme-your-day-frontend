@@ -6,6 +6,7 @@ footer {
     bottom: 0;
     width: 100vw;
     font-size: 0.8rem;
+    max-width: 100%;
   }
 
   .whiteText {

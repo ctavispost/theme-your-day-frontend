@@ -2,8 +2,8 @@ import React from 'react';
 
 const ThemeCard = (props) => {
     return(
-        <article className="GameCard">
-            <h2>{ props.name }</h2>
+        <article className="ThemeCard">
+            <h3 className="margTwoRem">{ props.name }</h3>
             <img src={ props.image } alt="{ props.name } art"/>
         </article>
     )

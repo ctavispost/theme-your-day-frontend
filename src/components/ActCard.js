@@ -14,7 +14,7 @@ const ActCard = (props) => {
             :
                 props.currentUser ?
                 <>
-                <button onClick={props.onDelete}>delete</button>
+                
                 <button onClick={props.onFavorite}>favorite</button>
                 </>
                 :
