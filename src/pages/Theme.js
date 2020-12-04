@@ -6,7 +6,8 @@ import UserActModel from '../models/userAct';
 
 class ShowTheme extends Component {
   state = {
-    activities: []
+    activities: [],
+    currentUser: localStorage.getItem("id")
   }
 
   componentDidMount() {
@@ -25,12 +26,13 @@ class ShowTheme extends Component {
   addFavoriteActivity = async (activity) => {
     console.log(activity);
     const newFavorite = UserActModel.createUserAct(activity);
-
+    console.log(newFavorite)
   };
 
   render() {
+    //console.log(this.state.currentUser);
     let actList = this.state.activities.map((activity, index) => {
-      return (<ActCard {...activity} onFavorite={() => this.addFavoriteActivity(activity)}/>)
+      return (<ActCard {...activity} onFavorite={() => this.addFavoriteActivity(activity)} currentUser = {this.state.currentUser}/>)
     })
 
     return (

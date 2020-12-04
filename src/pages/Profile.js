@@ -35,7 +35,7 @@ class Profile extends Component {
   getActivities = async () => {
     let userActs = await this.getUserActs();
     let acts = await this.getActs();
-    
+
     if (userActs.length > 0) {
       let actIds = new Set(userActs.map(v => v.activityId));
       let foundActs = acts.filter(v => actIds.has(v.id));
@@ -54,7 +54,7 @@ class Profile extends Component {
 
   render() {
     let actList = this.state.activities.map((activity, index) => {
-      return (<ActCard {...activity} key={activity.id} onDelete={() => this.deleteActivity(index)}/>)
+      return (<ActCard {...activity} key={activity.id} onDelete={() => this.deleteActivity(index)} currentUser = {this.props.currentUser} pathname = {this.props.path} />)
     })
 
     return (
