@@ -4,11 +4,15 @@ Theme Your Day is a chance to plan activities based on your favorite shows and m
 
 This frontend is related to https://github.com/ctavispost/theme-your-day-backend
 
+![snapshot from homepage](./images/home.png)
+![snapshot from profile page](./images/profile.png)
+![snapshot from theme page](./images/theme.png)
+
 ## Technologies
 - React
 - Express
 - Node
-- postress/Sequelize
+- Postgres/Sequelize
 
 ## Getting Started
 [Project Planning](https://trello.com/b/HxbXqDVU/theme-your-day)
