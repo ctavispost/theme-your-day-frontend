@@ -12,6 +12,7 @@ This frontend is related to https://github.com/ctavispost/theme-your-day-backend
 
 ## Getting Started
 [Project Planning](https://trello.com/b/HxbXqDVU/theme-your-day)
+
 [Wireframes and ERD](https://www.figma.com/file/NrBF8YJnNlqX7gSvrpKyRn/Untitled?node-id=0%3A1)
 
 ## Unsolved Problems
