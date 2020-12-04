@@ -5,11 +5,12 @@ import Home from '../pages/Home'
 import Register from '../pages/Register'
 import Login from '../pages/Login'
 import Profile from '../pages/Profile'
-import Theme from '../pages/Theme'
+import ShowTheme from '../pages/Theme'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const currentUser = localStorage.getItem('id')
   return  <Route { ...rest } render={ props => {
+    console.log(props)
             return currentUser ? <Component { ...rest } { ...props } /> : <Redirect to="/login" />
           }} 
   />
@@ -22,12 +23,11 @@ const Routes = (props) => (
     <Route path='/login' render={ (routeComponentProps) => {
       return  <Login 
                 {...routeComponentProps}
-                // more props to come here
                 currentUser={ props.currentUser }
                 storeUser={ props.storeUser }
               />
     } } />
-    <Route path='/theme' render={ Theme } />
+    <Route path='/theme' component={ ShowTheme } />
     <PrivateRoute path='/profile' component={ Profile } currentUser={ props.currentUser } />
   </Switch>
 )

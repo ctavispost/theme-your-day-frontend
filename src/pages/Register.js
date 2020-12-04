@@ -34,9 +34,9 @@ const Register = props => {
   }
 
   return (
-    <div>
+    <article className="gridy just-center-els">
       <h4>Register</h4>
-      <form onSubmit={ handleSubmit }>
+      <form className="gridy just-center-els" onSubmit={ handleSubmit }>
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <input 
@@ -81,9 +81,9 @@ const Register = props => {
             required
           />
         </div>
-        <button type="submit">Register</button>
+        <button className="marg-top-one" type="submit">Register</button>
       </form>
-    </div>
+    </article>
   )
 }
 

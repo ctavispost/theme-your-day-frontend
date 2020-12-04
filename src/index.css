@@ -43,10 +43,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 a {
   text-decoration: none;
 }
@@ -55,16 +51,18 @@ a:hover {
   text-decoration: underline;
 }
 
-button {
+button, .btn {
   color: #fff;
   background-color: var(--primaryBg);
+  padding: .5rem 1rem;
+  margin: 1rem;
 }
 
-button:hover {
+button:hover, .btn:hover {
   background-color: var(--primaryBgLt);
 }
 
-button:active {
+button:active, .btn:active {
   background-color: var(--primaryBgDk);
 }
 
@@ -75,6 +73,10 @@ p {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.hero{
+  text-align: center;
 }
 
 .form-group {
@@ -91,6 +93,10 @@ label {
 
 .flexy {
   display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 .gridy {
@@ -112,13 +118,20 @@ label {
   gap: 1rem;
 }
 
-.temp {
+.gridAutoCol {
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   margin: 0;
 }
 
-footer {
-  background-color: var(--primaryBgDk);
-  color: #fff;
-  padding: 1rem;
+.marg-top-one {
+  margin-top: 1rem;
+}
+
+.activityPic {
+  max-height: 50vh;
+  max-width: 44ch;
+}
+
+.margTwoRem {
+  margin: 2rem;
 }

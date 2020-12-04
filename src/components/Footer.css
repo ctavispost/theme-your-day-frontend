@@ -1,0 +1,13 @@
+footer {
+    background-color: hsla(221.4,100%,25.9%,0.9);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    bottom: 0;
+    width: 100vw;
+    font-size: 0.8rem;
+  }
+
+  .whiteText {
+    color: #fff !important;
+  }
