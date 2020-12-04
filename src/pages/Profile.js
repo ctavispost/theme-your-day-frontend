@@ -59,7 +59,7 @@ class Profile extends Component {
 
     return (
       <main>
-        <h1>Your Activities</h1>
+        <h1 className="margTwoRem">Your Activities</h1>
         <article>
             { this.state.activities ? actList : 'Loading...' }
         </article>
