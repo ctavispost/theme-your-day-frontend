@@ -23,6 +23,7 @@ This frontend is related to https://github.com/ctavispost/theme-your-day-backend
 - Many of the images are currently dummies
 - In some places, pictures aren't showing up
 - The styling needs work, particularly to be responsive at smaller sizes
+- User needs to see feedback on favoriting an activity, letting them know it worked
 
 ## Future Enhancements
 - Connect to outside event-planning API to gather suggestions for activities
